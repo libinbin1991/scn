@@ -1,0 +1,21 @@
+server:
+  port: 7000
+zlt:
+  nacos:
+    server-addr: 192.168.191.128:8848
+    env: bf053527-d223-4bf6-8e5a-8d23ccea8831
+
+spring:
+  application:
+    name: user-center
+  cloud:
+    nacos:
+      config:
+        server-addr: ${zlt.nacos.server-addr}
+        ext-config[0]:
+          data-id: common.yaml
+          group: common-config
+          refresh: true
+        namespace: ${zlt.nacos.env}
+      discovery:
+        server-addr: ${zlt.nacos.server-addr}
