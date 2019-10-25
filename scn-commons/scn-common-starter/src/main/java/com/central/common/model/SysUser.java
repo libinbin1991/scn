@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * @author zlt
+ * @author lbb
  * 用户实体
  */
 @Data

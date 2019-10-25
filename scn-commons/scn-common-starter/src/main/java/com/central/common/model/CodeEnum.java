@@ -1,7 +1,7 @@
 package com.central.common.model;
 
 /**
- * @Author: zlt
+ * @Author: lbb
  */
 public enum CodeEnum {
     SUCCESS(0),

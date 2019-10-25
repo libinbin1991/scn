@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @author 作者 owen E-mail: 624191343@qq.com
+ * @author 作者 lbb E-mail: lbb_it@163.com
  * 用户
  */
 @Slf4j

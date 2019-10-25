@@ -20,8 +20,8 @@ import java.util.Objects;
 /**
  * service实现父类
  *
- * @author zlt
- * @date 2019/1/10
+ * @author lbb
+ * @date 2019/10/25
  */
 public class SuperServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements ISuperService<T> {
     /**

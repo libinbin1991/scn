@@ -8,8 +8,8 @@ import java.util.Date;
 /**
  * 自定义填充公共 name 字段
  *
- * @author zlt
- * @date 2018/12/11
+ * @author lbb
+ * @date 2019/10/25
  */
 public class DateMetaObjectHandler implements MetaObjectHandler {
     private final static String UPDATE_TIME = "updateTime";

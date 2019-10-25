@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Profile;
 
 /**
  * mybatis-plus配置
- * @author zlt
- * @date 2018/12/13
+ * @author lbb
+ * @date 2019/10/25
  */
 @Import(DateMetaObjectHandler.class)
 public class DefaultMybatisPlusConfig {

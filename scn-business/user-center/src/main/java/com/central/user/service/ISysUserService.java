@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author zlt
+ * @author lbb
  */
 
 public interface ISysUserService extends ISuperService<SysUser> {
