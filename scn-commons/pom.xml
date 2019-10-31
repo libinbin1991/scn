@@ -17,6 +17,7 @@
     <modules>
         <module>scn-db-starter</module>
         <module>scn-common-starter</module>
+        <module>scn-log-starter</module>
     </modules>
 
 

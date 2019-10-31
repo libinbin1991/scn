@@ -67,6 +67,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
+
         <!--  mysql-jdbc依赖-->
         <dependency>
             <groupId>mysql</groupId>
@@ -147,13 +152,13 @@
                 <scope>import</scope>
             </dependency>
 
-          <!--  <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>-->
+            <!--  <dependency>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-dependencies</artifactId>
+                  <version>${spring-boot-dependencies.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>-->
             <!--  alibaba 的cloud相关包依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -163,25 +168,54 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- TransmittableThreadLocal 是Alibaba开源的、用于解决 “在使用线程池等会缓存线程的组件情况下传递ThreadLocal”-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <build>
+   <!-- <build>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>repackage</goal>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${docker-maven-plugin.version}</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <skip>true</skip>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+
             </plugins>
+
+
+
         </pluginManagement>
-    </build>
+    </build>-->
 
     <repositories>
         <!-- 阿里私有云服务-->
@@ -192,10 +226,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-     <!--   <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>-->
+        <!--   <repository>
+               <id>jitpack.io</id>
+               <url>https://jitpack.io</url>
+           </repository>-->
     </repositories>
     <modules>
         <!-- 公共 -->
