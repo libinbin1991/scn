@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.1.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -53,9 +53,9 @@
         <lettuce.version>5.1.8.RELEASE</lettuce.version>
         <banner.versio>1.0.2</banner.versio>
         <platform-bom>Cairo-SR3</platform-bom>
-        <spring.cloud.alibaba.version>0.2.1.RELEASE</spring.cloud.alibaba.version>
+        <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
         <spring-boot-dependencies.version>2.0.9.RELEASE</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>Finchley.SR4</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>Greenwich.SR3</spring-cloud-dependencies.version>
         <spring-boot-maven-plugin.version>2.1.1.RELEASE</spring-boot-maven-plugin.version>
         <docker-maven-plugin.version>1.2.0</docker-maven-plugin.version>
         <sonar.exclusions>zlt-job/**/*, zlt-register/**/*, zlt-web/**/*</sonar.exclusions>
@@ -64,6 +64,7 @@
         <docker.image.prefix>hub.zlt.com:8080/microservices-platform</docker.image.prefix>
         <docker.java.security.egd>-Djava.security.egd=file:/dev/./urandom</docker.java.security.egd>
         <docker.java.opts>-Xms128m -Xmx128m</docker.java.opts>
+        <rocketmq.version>4.3.2</rocketmq.version>
     </properties>
 
     <dependencies>
@@ -89,13 +90,15 @@
 
         <!-- nacos ;config,discovery配置-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
         </dependency>
+
 
         <!--  mybatisplus依赖-->
         <dependency>
@@ -160,13 +163,15 @@
                   <scope>import</scope>
               </dependency>-->
             <!--  alibaba 的cloud相关包依赖-->
+
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
+                <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
 
             <!-- TransmittableThreadLocal 是Alibaba开源的、用于解决 “在使用线程池等会缓存线程的组件情况下传递ThreadLocal”-->
             <dependency>
@@ -174,6 +179,13 @@
                 <artifactId>transmittable-thread-local</artifactId>
                 <version>${transmittable.version}</version>
             </dependency>
+            <!--rocketmq 依赖-->
+                <dependency>
+                    <groupId>org.apache.rocketmq</groupId>
+                    <artifactId>rocketmq-client</artifactId>
+                    <version>${rocketmq.version}</version>
+                </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -223,7 +235,7 @@
             <id>aliyun-repos</id>
             <url>https://maven.aliyun.com/repository/public</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
         <!--   <repository>

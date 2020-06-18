@@ -2,8 +2,8 @@ server:
   port: 7000
 zlt:
   nacos:
-    server-addr: 192.168.191.128:8848
-    env: bf053527-d223-4bf6-8e5a-8d23ccea8831
+    server-addr: 192.168.192.120:8848
+    env: 5c3facc2-f4da-486e-853e-78276cedb925
 
 spring:
   application:
@@ -19,3 +19,4 @@ spring:
         namespace: ${zlt.nacos.env}
       discovery:
         server-addr: ${zlt.nacos.server-addr}
+        namespace: ${zlt.nacos.env}
