@@ -81,7 +81,12 @@
         <appender-ref ref="point_log_async" />
     </logger>
 
-    <root level="INFO">
+    <logger name="com.central.user.mapper">
+        <level value="debug" />
+    </logger>
+
+
+    <root level="debug">
         <appender-ref ref="StdoutAppender"/>
         <appender-ref ref="file_async"/>
     </root>
