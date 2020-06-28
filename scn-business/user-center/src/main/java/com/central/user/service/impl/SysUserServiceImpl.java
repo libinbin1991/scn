@@ -41,4 +41,16 @@ public class SysUserServiceImpl extends SuperServiceImpl<SysUserMapper, SysUser>
         return getUser(users);
     }
 
+
+
+
+
+    public void TestCRUDU(SysUser user) {
+
+
+
+
+
+    }
+
 }

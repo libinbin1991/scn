@@ -9,18 +9,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *
- * 描述：如果不使用代码手动初始化DataSource的话，监控界面的SQL监控会没有数据("是spring boot的bug???")
- * @author chhliu
- * 创建时间：2017年2月9日 下午7:33:08
- * @version 1.2.0
+ * @author 作者 lbb E-mail: lbb_it@163.com
  */
 @Slf4j
 @Configuration
 @RefreshScope
 @Data
-public class DruidConfiguration
-{
+public class DruidConfiguration {
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
@@ -80,8 +75,7 @@ public class DruidConfiguration
 
     @Bean
     @RefreshScope
-    public DruidDataSource dataSource()
-    {
+    public DruidDataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(this.dbUrl);
         datasource.setUsername(username);

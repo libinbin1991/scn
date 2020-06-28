@@ -15,6 +15,7 @@
 
     <modules>
         <module>user-center</module>
+        <module>xxl-job</module>
     </modules>
 
 

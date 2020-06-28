@@ -40,6 +40,24 @@
             <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+
+        <!-- nacos ;config,discovery配置  注意：在程序启动时，会动态的根据引入的依赖去加载初始对应的配置，
+        无论是注册中心还是配置中心，所以我们如果没用到nacos的功能，就把这个依赖去掉。-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
