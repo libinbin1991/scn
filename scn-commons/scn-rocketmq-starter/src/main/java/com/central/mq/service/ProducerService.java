@@ -48,6 +48,7 @@ public class ProducerService {
      */
     public Result sendAsyn(ProducerBean producerBean) {
         Message message = MQUtil.getMessage(producerBean.getSend());
+        //message.setDelayTimeLevel(1); 延时消息
         try {
             producerBean.getProducer().send(message, producerBean.getSend().getCallback());
             return new Result(MQEnums.CODE.SUCCESS);
