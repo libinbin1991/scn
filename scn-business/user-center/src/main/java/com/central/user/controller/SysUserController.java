@@ -33,16 +33,14 @@ public class SysUserController {
      * 查询用户实体对象SysUser
      */
     @GetMapping(value = "/users/name/{username}")
-    @Cacheable(value = "user", key = "#username")
-    public SysUser selectByUsername(@PathVariable String username) {
-        SysUser sysUser = iSysUserService.selectByUsername(username);
-        System.out.println(sysUser.toString());
+    public String selectByUsername(@PathVariable String username) {
 
 
 
 
 
-        return sysUser;
+
+        return username;
     }
 
 

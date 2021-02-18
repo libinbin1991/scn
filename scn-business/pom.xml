@@ -16,6 +16,7 @@
     <modules>
         <module>user-center</module>
         <module>xxl-job</module>
+        <module>user-test</module>
     </modules>
 
 

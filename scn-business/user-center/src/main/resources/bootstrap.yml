@@ -1,5 +1,5 @@
 server:
-  port: 7000
+  port: 8000
 zlt:
   nacos:
     server-addr: 192.168.192.120:8848
@@ -7,7 +7,7 @@ zlt:
 
 spring:
   application:
-    name: user-center
+    name: user-center-cust
   cloud:
     nacos:
       config:
