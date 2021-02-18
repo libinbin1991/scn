@@ -1,0 +1,38 @@
+server:
+  port: 8001
+zlt:
+  nacos:
+    server-addr: 192.168.192.120:8848
+    env: 5c3facc2-f4da-486e-853e-78276cedb925
+
+spring:
+  application:
+    name: user-test
+  cloud:
+    nacos:
+      config:
+        server-addr: ${zlt.nacos.server-addr}
+        ext-config[0]:
+          data-id: common.yaml
+          group: common-config
+          refresh: true
+        ext-config[1]:
+          data-id: common2.yaml
+          group: common-config
+          refresh: true
+        namespace: ${zlt.nacos.env}
+      discovery:
+        server-addr: ${zlt.nacos.server-addr}
+        namespace: ${zlt.nacos.env}
+#当遇到相同名字时是否允许覆盖
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.central.common.model
+
+  global-config:
+    db-config:
+      id-type: auto
